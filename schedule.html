@@ -1,49 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>KMNx League - Schedule</title>
+  <meta charset="utf-8" />
+  <title>KMNx League — Schedule</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <img src="logo.png" alt="KMNx League Logo" class="logo">
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="leaderboard.html">Leaderboard</a>
-    <a href="schedule.html">Schedule</a>
-    <a href="teams.html">Teams</a>
-  </nav>
-</header>
+  <div class="bg-animated"></div>
 
-<main>
-  <h1>Upcoming Matches</h1>
-  <div id="countdown" class="countdown"></div>
-  <table id="schedule">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Time (Berlin)</th>
-        <th>Map</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- TEST MATCHES -->
-      <tr>
-        <td>2025-10-10</td>
-        <td>19:00</td>
-        <td>Map X</td>
-      </tr>
-      <tr>
-        <td>2025-10-12</td>
-        <td>21:00</td>
-        <td>Map Y</td>
-      </tr>
-      <!-- END TEST MATCHES -->
-    </tbody>
-  </table>
-</main>
+  <header class="site-header">
+    <div class="header-left">
+      <img src="logo.png" alt="KMNx League" class="logo">
+      <h1 class="brand">KMNx <span>League</span></h1>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+      <a href="schedule.html" class="nav-link active">Schedule</a>
+      <a href="teams.html" class="nav-link">Teams</a>
+      <a href="admin.html" class="nav-link">Admin</a>
+    </nav>
+  </header>
 
-<script src="countdown.js"></script>
+  <main class="container">
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Upcoming Matches</h2>
+        <p class="hint">Times shown in Berlin (CET/CEST). Add matches via Admin.</p>
+      </div>
+
+      <div class="countdown-wrap">
+        <div id="nextMatchCard" class="next-match">
+          <div class="next-label">Next Match</div>
+          <div id="nextMatchInfo" class="next-info">No upcoming matches</div>
+          <div id="countdown" class="countdown">--:--:--</div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="scheduleTable" class="fancy-table">
+          <thead>
+            <tr><th>Date</th><th>Time (Berlin)</th><th>Map</th></tr>
+          </thead>
+          <tbody>
+            <!-- TEST MATCHES (format: YYYY-MM-DD and HH:MM (24h)) -->
+            <tr>
+              <td class="date">2025-10-10</td>
+              <td class="time">19:00</td>
+              <td class="map">Map X</td>
+            </tr>
+            <tr>
+              <td class="date">2025-10-12</td>
+              <td class="time">21:00</td>
+              <td class="map">Map Y</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="schedule.js"></script>
+  <script>
+    // initialize schedule countdown on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      schedule_initCountdown();
+    });
+  </script>
 </body>
 </html>
