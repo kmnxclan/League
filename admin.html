@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>KMNx League — Admin</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-animated"></div>
+
+  <header class="site-header">
+    <div class="header-left">
+      <img src="logo.png" alt="KMNx League" class="logo">
+      <h1 class="brand">KMNx <span>League</span></h1>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+      <a href="schedule.html" class="nav-link">Schedule</a>
+      <a href="teams.html" class="nav-link">Teams</a>
+      <a href="admin.html" class="nav-link active">Admin</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Admin Panel (Client-side)</h2>
+      <p class="hint">This is a simple client-side editor. Changes are saved in your browser (localStorage). When you want final backend persistence we can connect a DB or JSON file.</p>
+
+      <div class="admin-columns">
+        <div class="admin-block">
+          <h3>Leaderboard — Add Team</h3>
+          <label>Team name<input id="admin_team_name" type="text" placeholder="Team Name"></label>
+          <label>Games played<input id="admin_gp" type="number" value="0"></label>
+          <label>Wins<input id="admin_w" type="number" value="0"></label>
+          <label>Losses<input id="admin_l" type="number" value="0"></label>
+          <button id="admin_add_team" class="btn primary">Add Team</button>
+        </div>
+
+        <div class="admin-block">
+          <h3>Schedule — Add Match</h3>
+          <label>Date (YYYY-MM-DD)<input id="admin_date" type="date"></label>
+          <label>Time (HH:MM) <input id="admin_time" type="time"></label>
+          <label>Map<input id="admin_map" type="text" placeholder="Map X"></label>
+          <button id="admin_add_match" class="btn primary">Add Match</button>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <button id="admin_apply" class="btn ghost">Apply to pages (updates local tables)</button>
+        <button id="admin_reset" class="btn danger">Reset demo data</button>
+      </div>
+
+      <p class="hint" style="margin-top:12px;">Instructions: <br> - Add Teams or Matches here. Click "Apply" to store in localStorage and then open <strong>leaderboard.html</strong> or <strong>schedule.html</strong> in the same folder — they will load saved data automatically. This is client-only for now.</p>
+    </section>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
