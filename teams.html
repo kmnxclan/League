@@ -5,20 +5,156 @@
   <title>KMNx League - Teams</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Particle background */
+    #particles-js {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      z-index: -1;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px 0;
+      background: rgba(26,26,26,0.95);
+      box-shadow: 0 0 25px rgba(255,0,0,0.6);
+      position: relative;
+      z-index: 1;
+    }
+    header h1 { color: #ff0000; text-shadow: 0 0 15px rgba(255,0,0,0.7); margin:0; font-size:3rem; }
+    nav {
+      margin-top:15px;
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      align-items:center;
+    }
+    nav a {
+      display:flex;
+      align-items:center;
+      gap:5px;
+      color:#fff;
+      text-decoration:none;
+      font-weight:bold;
+      position:relative;
+      transition: all 0.3s;
+    }
+    nav a::after {
+      content:'';
+      display:block;
+      height:2px;
+      width:0;
+      background:#ff0000;
+      margin-top:4px;
+      transition:width 0.3s;
+    }
+    nav a:hover::after { width:100%; }
+    nav a:hover { transform: scale(1.05); color:#ff0000; }
+
+    main {
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .team-card {
+      background: rgba(26,26,26,0.95);
+      padding: 20px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 300px;
+      box-shadow: 0 0 20px rgba(255,0,0,0.4);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 35px rgba(255,0,0,0.7);
+    }
+    .team-name {
+      font-size: 1.5rem;
+      color: #ff0000;
+      margin-bottom: 10px;
+    }
+    .team-stats { font-size: 1rem; }
+    .team-stats span { display: block; margin: 5px 0; }
+
+  </style>
 </head>
 <body>
+
+  <div id="particles-js"></div>
+
   <header>
-    <h1 class="glow">KMNx League - Teams</h1>
+    <h1>KMNx League</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="teams.html">Teams</a>
-      <a href="results.html">Results</a>
-      <a href="leaderboard.html">Leaderboard</a>
-      <a href="schedule.html">Schedule</a>
+      <a href="index.html"><span>🏠</span> Home</a>
+      <a href="teams.html"><span>👥</span> Teams</a>
+      <a href="results.html"><span>📊</span> Results</a>
+      <a href="leaderboard.html"><span>🏆</span> Leaderboard</a>
+      <a href="schedule.html"><span>🗓️</span> Schedule</a>
     </nav>
   </header>
+
   <main>
-    <div id="teams"></div>
+    <!-- Example Team Cards -->
+    <div class="team-card">
+      <div class="team-name">Team Alpha</div>
+      <div class="team-stats">
+        <span>Wins: 5</span>
+        <span>Losses: 2</span>
+        <span>Kills: 45</span>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-name">Team Bravo</div>
+      <div class="team-stats">
+        <span>Wins: 4</span>
+        <span>Losses: 3</span>
+        <span>Kills: 38</span>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-name">Team Charlie</div>
+      <div class="team-stats">
+        <span>Wins: 6</span>
+        <span>Losses: 1</span>
+        <span>Kills: 50</span>
+      </div>
+    </div>
+
+    <!-- Add more teams by copying a team-card div -->
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 50 },
+        color: { value: "#ff0000" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        move: { enable: true, speed: 1, random: true }
+      },
+      interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" } } },
+      retina_detect: true
+    });
+  </script>
+
 </body>
 </html>
