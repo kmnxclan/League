@@ -1,47 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KMNx League Live Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>KMNx League</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">KMNx League</div>
-    </header>
+  <header>
+    <img src="assets/logo.png" alt="KMNx League Logo" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="teams.html">Teams</a>
+    </nav>
+  </header>
 
-    <main>
-        <!-- Leaderboard Section -->
-        <section id="leaderboard">
-            <h2>Leaderboard</h2>
-            <table id="leaderboard-table">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Team</th>
-                        <th>Wins</th>
-                        <th>Losses</th>
-                        <th>Points</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </section>
+  <main class="home">
+    <h1>Welcome to KMNx League</h1>
+    <p>Your hub for all KMNx League games, schedules, and standings!</p>
+    <div class="buttons">
+      <a href="leaderboard.html" class="btn">View Leaderboard</a>
+      <a href="schedule.html" class="btn">See Schedule</a>
+    </div>
+  </main>
 
-        <!-- Live Matches Section -->
-        <section id="matches">
-            <h2>Live Matches</h2>
-            <div id="matches-container"></div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© KMNx League 2025 | All rights reserved</p>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+  <footer>
+    <p>&copy; 2025 KMNx League</p>
+  </footer>
 </body>
 </html>
