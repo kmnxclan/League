@@ -1,0 +1,26 @@
+[
+  {
+    "match": 1,
+    "date": "2025-10-06",
+    "time": "19:00",
+    "map": "Arena X",
+    "teamA": "Team Alpha",
+    "teamB": "Team Beta",
+    "scoreA": 12,
+    "scoreB": 8,
+    "killsA": 55,
+    "killsB": 42
+  },
+  {
+    "match": 2,
+    "date": "2025-10-07",
+    "time": "20:00",
+    "map": "Arena Y",
+    "teamA": "Team KMNx",
+    "teamB": "Team Delta",
+    "scoreA": null,
+    "scoreB": null,
+    "killsA": null,
+    "killsB": null
+  }
+]
