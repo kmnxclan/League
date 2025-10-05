@@ -198,6 +198,46 @@ async function populateSchedule() {
   });
 }
 
+// Example data (you can update results here, Points = Wins*3)
+const teamsData = [
+  { name: "Team Alpha", wins: 5, losses: 2, kills: 45 },
+  { name: "Team Bravo", wins: 4, losses: 3, kills: 38 },
+  { name: "Team Charlie", wins: 6, losses: 1, kills: 50 },
+  // Add more teams here
+];
+
+// Function to calculate points and sort
+function renderTeams() {
+  const container = document.getElementById('teams-container');
+  container.innerHTML = '';
+
+  // Calculate points for each team
+  teamsData.forEach(team => team.points = team.wins * 3);
+
+  // Sort by points descending
+  teamsData.sort((a, b) => b.points - a.points);
+
+  // Create cards
+  teamsData.forEach(team => {
+    const card = document.createElement('div');
+    card.classList.add('team-card');
+    card.innerHTML = `
+      <div class="team-name">${team.name}</div>
+      <div class="team-stats">
+        <span>Wins: ${team.wins}</span>
+        <span>Losses: ${team.losses}</span>
+        <span>Kills: ${team.kills}</span>
+        <span>Points: ${team.points}</span>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// Render teams when page loads
+document.addEventListener('DOMContentLoaded', renderTeams);
+
+
 // -----------------------------
 // Initialize All
 // -----------------------------
