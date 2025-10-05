@@ -1,0 +1,32 @@
+{
+  "matches": [
+    {
+      "date": "2025-10-10",
+      "time": "19:00",
+      "map": "Map X",
+      "team1": "TEST Clan 1",
+      "team2": "TEST Clan 2",
+      "score1": 2,
+      "score2": 1,
+      "kills1": 52,
+      "kills2": 48
+    },
+    {
+      "date": "2025-10-12",
+      "time": "20:00",
+      "map": "Map Y",
+      "team1": "TEST Clan 3",
+      "team2": "TEST Clan 4",
+      "score1": null,
+      "score2": null,
+      "kills1": null,
+      "kills2": null
+    }
+  ],
+  "teams": [
+    { "name": "TEST Clan 1" },
+    { "name": "TEST Clan 2" },
+    { "name": "TEST Clan 3" },
+    { "name": "TEST Clan 4" }
+  ]
+}
