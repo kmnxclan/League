@@ -62,34 +62,38 @@
     }
     header h1 {
       font-size: 3rem;
-      background: linear-gradient(90deg, #ff0000, #fff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #ff0000;
       text-shadow: 0 0 15px rgba(255,0,0,0.7);
       margin: 0;
     }
     nav {
-      margin-top: 10px;
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      align-items: center;
     }
     nav a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
       color: #fff;
-      margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
       position: relative;
+      transition: all 0.3s;
     }
     nav a::after {
-      content: '';
-      display: block;
-      height: 2px;
-      width: 0;
-      background: #ff0000;
+      content:'';
+      display:block;
+      height:2px;
+      width:0;
+      background:#ff0000;
+      margin-top:4px;
       transition: width 0.3s;
-      margin-top: 5px;
     }
-    nav a:hover::after {
-      width: 100%;
-    }
+    nav a:hover::after { width:100%; }
+    nav a:hover { transform: scale(1.05); color:#ff0000; }
 
     /* Main layout */
     main {
@@ -150,22 +154,26 @@
 
     @keyframes glow { 0% { text-shadow: 0 0 5px #ff0000; } 100% { text-shadow: 0 0 20px #ff0000; } }
     @keyframes pulse { 0% { box-shadow:0 0 5px #ff0000; } 50% { box-shadow:0 0 20px #ff0000; } 100% { box-shadow:0 0 5px #ff0000; } }
+
   </style>
 </head>
 <body>
 
+  <!-- Particle Background -->
   <div id="particles-js"></div>
 
+  <!-- Splash Intro -->
   <div id="splash"><h1>KMNx League</h1></div>
 
+  <!-- Header with navigation -->
   <header>
     <h1>KMNx League</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="teams.html">Teams</a>
-      <a href="results.html">Results</a>
-      <a href="leaderboard.html">Leaderboard</a>
-      <a href="schedule.html">Schedule</a>
+      <a href="index.html"><span>🏠</span> Home</a>
+      <a href="teams.html"><span>👥</span> Teams</a>
+      <a href="results.html"><span>📊</span> Results</a>
+      <a href="leaderboard.html"><span>🏆</span> Leaderboard</a>
+      <a href="schedule.html"><span>🗓️</span> Schedule</a>
     </nav>
   </header>
 
@@ -199,8 +207,10 @@
     </div>
   </main>
 
+  <!-- Particles.js library -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
+    // Particle background
     particlesJS("particles-js", {
       particles: {
         number: { value: 60 },
@@ -214,8 +224,13 @@
       retina_detect: true
     });
 
+    // Splash hide after 2.5s
     setTimeout(() => { document.getElementById('splash').style.display = 'none'; }, 2500);
-    document.addEventListener("DOMContentLoaded", () => { if (typeof updateNextMatchTimer==='function') updateNextMatchTimer(); });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof updateNextMatchTimer === 'function') updateNextMatchTimer();
+    });
   </script>
+
 </body>
 </html>
