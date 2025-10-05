@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>KMNx League - Home</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
@@ -16,11 +17,25 @@
       <a href="schedule.html">Schedule</a>
     </nav>
   </header>
+
   <main>
     <section class="card fade-in">
       <h2>About the Tournament</h2>
-      <p>The KMNx League is a weekly competitive tournament where teams of 5 players face off in intense matches. 
-      Each victory earns your team <b>3 points</b>. Wins, losses, and kills are tracked to determine the ultimate champion.</p>
+      <p>
+        Welcome to the KMNx League!<br>
+        The ultimate weekly tournament where the fiercest teams compete for glory. 
+        Every team consists of 5 skilled players, battling it out across thrilling maps 
+        in intense matches.<br><br>
+        Whether you’re here to follow your favorite team, track the live results, or see who dominates the leaderboard, 
+        the KMNx League has it all — live matches, up-to-date stats, and a schedule you can rely on.<br><br>
+        Every victory counts: teams earn <b>3 points per win</b>, while losses and kills are tracked to determine the ultimate champion at the end of the season.<br><br>
+        Dive in, explore the league, and stay tuned — every week brings new action, new champions, and unforgettable moments.
+      </p>
+    </section>
+
+    <section class="card slide-up">
+      <h2>Next Match</h2>
+      <div id="next-match-timer" class="fade-in">Loading...</div>
     </section>
 
     <section class="card slide-up">
