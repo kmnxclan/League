@@ -1,7 +1,5 @@
 // Countdown to next game
-// Change this date to the next match
-let nextGame = new Date("2025-10-10T19:00:00+02:00").getTime(); // Berlin time
-
+let nextGame = new Date("2025-10-10T19:00:00+02:00").getTime(); // Berlin Time
 const countdownElement = document.getElementById('countdown');
 
 function updateCountdown() {
@@ -13,8 +11,8 @@ function updateCountdown() {
     return;
   }
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
+  const days = Math.floor(distance / (1000*60*60*24));
+  const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
   const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
   const seconds = Math.floor((distance % (1000*60)) / 1000);
 
