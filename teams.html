@@ -15,7 +15,6 @@
       overflow-x: hidden;
     }
 
-    /* Particle background */
     #particles-js {
       position: fixed;
       top:0; left:0;
@@ -78,11 +77,29 @@
       box-shadow: 0 0 20px rgba(255,0,0,0.4);
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
     }
     .team-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 0 35px rgba(255,0,0,0.7);
     }
+    .team-card.top1 { border: 3px solid gold; box-shadow: 0 0 25px gold; }
+    .team-card.top2 { border: 3px solid silver; box-shadow: 0 0 25px silver; }
+    .team-card.top3 { border: 3px solid #cd7f32; box-shadow: 0 0 25px #cd7f32; }
+
+    .team-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #ff0000;
+      margin: 0 auto 10px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      color: #fff;
+    }
+
     .team-name {
       font-size: 1.5rem;
       color: #ff0000;
@@ -108,40 +125,13 @@
     </nav>
   </header>
 
-  <main>
-    <!-- Example Team Cards -->
-    <div class="team-card">
-      <div class="team-name">Team Alpha</div>
-      <div class="team-stats">
-        <span>Wins: 5</span>
-        <span>Losses: 2</span>
-        <span>Kills: 45</span>
-      </div>
-    </div>
-
-    <div class="team-card">
-      <div class="team-name">Team Bravo</div>
-      <div class="team-stats">
-        <span>Wins: 4</span>
-        <span>Losses: 3</span>
-        <span>Kills: 38</span>
-      </div>
-    </div>
-
-    <div class="team-card">
-      <div class="team-name">Team Charlie</div>
-      <div class="team-stats">
-        <span>Wins: 6</span>
-        <span>Losses: 1</span>
-        <span>Kills: 50</span>
-      </div>
-    </div>
-
-    <!-- Add more teams by copying a team-card div -->
+  <main id="teams-container">
+    <!-- Teams will be dynamically generated here -->
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
+    // Particle background
     particlesJS("particles-js", {
       particles: {
         number: { value: 50 },
@@ -154,7 +144,61 @@
       interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" } } },
       retina_detect: true
     });
-  </script>
 
+    // Teams data
+    const teamsData = [
+      { name: "Team Alpha", wins: 5 },
+      { name: "Team Bravo", wins: 4 },
+      { name: "Team Charlie", wins: 6 },
+      { name: "Team Delta", wins: 3 },
+      { name: "Team Echo", wins: 2 },
+    ];
+
+    // Render teams
+    function renderTeams() {
+      const container = document.getElementById('teams-container');
+      container.innerHTML = '';
+
+      // Calculate points
+      teamsData.forEach(team => team.points = team.wins * 3);
+
+      // Sort by points descending
+      teamsData.sort((a,b) => b.points - a.points);
+
+      // Create cards
+      teamsData.forEach((team,index) => {
+        const card = document.createElement('div');
+        card.classList.add('team-card');
+        if(index === 0) card.classList.add('top1');
+        if(index === 1) card.classList.add('top2');
+        if(index === 2) card.classList.add('top3');
+
+        card.innerHTML = `
+          <div class="team-icon">🏅</div>
+          <div class="team-name">${team.name}</div>
+          <div class="team-stats">
+            <span>Wins: <span class="wins-counter">0</span></span>
+            <span>Points: <span class="points-counter">0</span></span>
+          </div>
+        `;
+        container.appendChild(card);
+
+        // Animate counters
+        animateCounter(card.querySelector('.wins-counter'), team.wins);
+        animateCounter(card.querySelector('.points-counter'), team.points);
+      });
+    }
+
+    // Counter animation
+    function animateCounter(element, value) {
+      let count = 0;
+      const interval = setInterval(() => {
+        if(count >= value) { clearInterval(interval); element.textContent = value; }
+        else { element.textContent = count; count++; }
+      }, 50);
+    }
+
+    document.addEventListener('DOMContentLoaded', renderTeams);
+  </script>
 </body>
 </html>
