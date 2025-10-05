@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>KMNx League — Results</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <img src="logo.png" alt="KMNx League" class="logo">
+      <div>
+        <div class="title">KMNx <span>League</span></div>
+        <div class="subtitle">Results control</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="teams.html" class="nav-link">Teams</a>
+      <a href="results.html" class="nav-link active">Results</a>
+      <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+      <a href="schedule.html" class="nav-link">Schedule</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Live Matches</h2>
+      <div id="liveList" class="cards-row">Loading...</div>
+
+      <h2 class="mt">Upcoming Matches</h2>
+      <div id="upcomingList" class="cards-row">Loading...</div>
+
+      <h2 class="mt">Ended Matches</h2>
+      <div id="endedList" class="cards-row">Loading...</div>
+
+      <div class="hint" style="margin-top:12px">
+        <strong>How to edit results:</strong> Click an upcoming match card to enter scores and kills — changes are saved in your browser (localStorage) and will update all pages instantly. If you want to work with a server-hosted JSON file instead, put `data.json` in the same folder and open the site via a web server.
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><small>© 2025 KMNx League</small></footer>
+</body>
+</html>
