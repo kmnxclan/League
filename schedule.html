@@ -1,23 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KMNx League - Schedule</title>
+  <meta charset="utf-8" />
+  <title>KMNx League — Schedule</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="leaderboard.html">Leaderboard</a>
-    <a href="schedule.html">Schedule</a>
-    <a href="teams.html">Teams</a>
-  </nav>
+  <div class="page-bg"></div>
 
-  <main>
-    <h1>Match Schedule</h1>
-    <div id="schedule" class="cards"></div>
+  <header class="topbar">
+    <div class="brand">
+      <img src="logo.png" alt="KMNx League" class="logo">
+      <div>
+        <div class="title">KMNx <span>League</span></div>
+        <div class="subtitle">Schedule (add fixtures)</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="teams.html" class="nav-link">Teams</a>
+      <a href="results.html" class="nav-link">Results</a>
+      <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+      <a href="schedule.html" class="nav-link active">Schedule</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Add a new fixture</h2>
+      <div class="form-grid">
+        <label>Team 1<input id="sch_team1" placeholder="Clan Alpha"></label>
+        <label>Team 2<input id="sch_team2" placeholder="Clan Bravo"></label>
+        <label>Date <input id="sch_date" type="date"></label>
+        <label>Time <input id="sch_time" type="time"></label>
+        <label>Map <input id="sch_map" placeholder="Map X"></label>
+      </div>
+      <div style="margin-top:10px">
+        <button id="sch_add" class="btn btn-primary">Add fixture</button>
+        <button id="sch_reset" class="btn btn-ghost">Reset demo data</button>
+      </div>
+
+      <h3 class="mt">All scheduled fixtures</h3>
+      <div id="scheduleList" class="cards-row">Loading...</div>
+
+      <div class="hint mt">Note: Adding a fixture stores it in your browser (localStorage). To use a server/JSON file, host `data.json` on your webserver. To reset everything, click Reset.</div>
+    </section>
   </main>
+
+  <footer class="footer"><small>© 2025 KMNx League</small></footer>
 </body>
 </html>
