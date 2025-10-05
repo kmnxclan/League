@@ -5,8 +5,115 @@
   <title>KMNx League - Home</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Particle background container */
+    #particles-js {
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      z-index: -1;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 0;
+      background: rgba(26,26,26,0.9);
+      box-shadow: 0 0 20px #ff0000;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #ff0000;
+      text-shadow: 0 0 20px #ff0000;
+      animation: glow 2s infinite alternate;
+      margin: 0;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover { color: #ff0000; transform: scale(1.1); }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px 20px;
+      gap: 20px;
+    }
+
+    .content {
+      flex: 1 1 600px;
+      max-width: 900px;
+    }
+
+    .sidebar {
+      flex: 0 1 250px;
+      max-width: 300px;
+      align-self: flex-start;
+    }
+
+    .card {
+      background: rgba(26,26,26,0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255,0,0,0.5);
+      margin-bottom: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover { transform: translateY(-5px); box-shadow: 0 0 25px rgba(255,0,0,0.8); }
+
+    .site-links { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; }
+    .site-links div { flex: 1 1 200px; text-align: center; }
+    .enter-btn { display: inline-block; margin-top: 10px; padding: 10px 20px; color: #fff; background: #ff0000; border-radius: 5px; text-decoration: none; transition: 0.3s; }
+    .enter-btn:hover { background: #fff; color: #ff0000; transform: scale(1.05); }
+
+    #next-match-timer {
+      font-size: 1rem;
+      padding: 10px;
+      text-align: center;
+      border: 2px solid #ff0000;
+      border-radius: 10px;
+      animation: pulse 2s infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes glow { 0% { text-shadow: 0 0 5px #ff0000; } 100% { text-shadow: 0 0 20px #ff0000; } }
+    @keyframes pulse { 0% { box-shadow: 0 0 5px #ff0000; } 50% { box-shadow: 0 0 20px #ff0000; } 100% { box-shadow: 0 0 5px #ff0000; } }
+
+    /* Splash Animation */
+    #splash { position: fixed; top:0; left:0; width:100%; height:100%; background:#111; display:flex; justify-content:center; align-items:center; z-index:9999; }
+    #splash h1 { font-size:5rem; color:#ff0000; text-shadow:0 0 30px #ff0000; animation: splashAnim 2s forwards; }
+    @keyframes splashAnim { 0% { opacity:0; transform:scale(0.5); } 50% { opacity:1; transform:scale(1.2); } 100% { opacity:0; transform:scale(1); } }
+  </style>
 </head>
 <body>
+
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+
+  <!-- Splash Intro -->
+  <div id="splash"><h1>KMNx League</h1></div>
+
   <header>
     <h1 class="glow">Welcome to KMNx League</h1>
     <nav>
@@ -19,46 +126,72 @@
   </header>
 
   <main>
-    <section class="card fade-in">
-      <h2>About the Tournament</h2>
-      <p>
-        Welcome to the KMNx League!<br>
-        The ultimate weekly tournament where the fiercest teams compete for glory. 
-        Every team consists of 5 skilled players, battling it out across thrilling maps 
-        in intense matches.<br><br>
-        Whether you’re here to follow your favorite team, track the live results, or see who dominates the leaderboard, 
-        the KMNx League has it all — live matches, up-to-date stats, and a schedule you can rely on.<br><br>
-        Every victory counts: teams earn <b>3 points per win</b>, while losses and kills are tracked to determine the ultimate champion at the end of the season.<br><br>
-        Dive in, explore the league, and stay tuned — every week brings new action, new champions, and unforgettable moments.
-      </p>
-    </section>
+    <div class="content">
+      <section class="card fade-in">
+        <h2>About the Tournament</h2>
+        <p>
+          Welcome to the KMNx League! The ultimate weekly tournament where the fiercest teams compete for glory. 
+          Every team consists of 5 skilled players battling across thrilling maps. Each week brings live matches, up-to-date stats, and action-packed gameplay.
+          Teams earn <b>3 points per win</b> and all kills are tracked to determine the ultimate champion. Explore, follow, and witness the best in action!
+        </p>
+      </section>
 
-    <section class="card slide-up">
-      <h2>Next Match</h2>
-      <div id="next-match-timer" class="fade-in">Loading...</div>
-    </section>
+      <section class="card slide-up">
+        <h2>Explore the League</h2>
+        <div class="site-links">
+          <div>
+            <p>View all participating teams and their all-time stats.</p>
+            <a class="enter-btn" href="teams.html">Go to Teams</a>
+          </div>
+          <div>
+            <p>See ongoing, upcoming, and finished matches each week.</p>
+            <a class="enter-btn" href="results.html">Go to Results</a>
+          </div>
+          <div>
+            <p>Track the rankings of teams by points and performance.</p>
+            <a class="enter-btn" href="leaderboard.html">Go to Leaderboard</a>
+          </div>
+          <div>
+            <p>Check the full schedule of upcoming matches.</p>
+            <a class="enter-btn" href="schedule.html">Go to Schedule</a>
+          </div>
+        </div>
+      </section>
+    </div>
 
-    <section class="card slide-up">
-      <h2>Explore the League</h2>
-      <div class="site-links">
-        <div>
-          <p>View all participating teams and their all-time stats.</p>
-          <a class="enter-btn" href="teams.html">Go to Teams</a>
-        </div>
-        <div>
-          <p>See ongoing, upcoming, and finished matches each week.</p>
-          <a class="enter-btn" href="results.html">Go to Results</a>
-        </div>
-        <div>
-          <p>Track the rankings of teams by points and performance.</p>
-          <a class="enter-btn" href="leaderboard.html">Go to Leaderboard</a>
-        </div>
-        <div>
-          <p>Check the full schedule of upcoming matches.</p>
-          <a class="enter-btn" href="schedule.html">Go to Schedule</a>
-        </div>
+    <aside class="sidebar">
+      <div class="card">
+        <h3>Next Match</h3>
+        <div id="next-match-timer">Loading...</div>
       </div>
-    </section>
+    </aside>
   </main>
+
+  <!-- Particles.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    // Particles background
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 50 },
+        color: { value: "#ff0000" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, anim: { enable: true, speed: 1 } },
+        size: { value: 3 },
+        move: { enable: true, speed: 1, direction: "none", random: true, straight: false }
+      },
+      interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" } } },
+      retina_detect: true
+    });
+
+    // Hide splash after 2.5 seconds
+    setTimeout(() => { document.getElementById('splash').style.display = 'none'; }, 2500);
+
+    // Call existing Next Match Timer function
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof updateNextMatchTimer === 'function') updateNextMatchTimer();
+    });
+  </script>
+
 </body>
 </html>
