@@ -26,43 +26,18 @@
             </h1>
             <p class="small-text">KMNx League</p>
         </div>
-        <nav>
-            <a href="#schedule">Schedule</a>
-            <a href="#teams">Teams</a>
-            <a href="#leaderboard">Leaderboard</a>
-            <a href="#contact">Contact</a>
-        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <h2>Welcome to the KMNx League</h2>
-        <p>Competitive E-Sports in Champions League Format. Top 4 advance to Quarter Finals!</p>
-        <a href="#schedule" class="btn">See Schedule</a>
-        <a href="#contact" class="btn">Join Discord</a>
-    </section>
+    <!-- Buttons -->
+    <div class="buttons">
+        <button class="btn" data-target="schedule">Schedule</button>
+        <button class="btn" data-target="teams">Teams</button>
+        <button class="btn" data-target="leaderboard">Leaderboard</button>
+        <button class="btn" data-target="contact">Contact</button>
+    </div>
 
-    <!-- League Format -->
-    <section id="format">
-        <h2>League Format</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Point System</h3>
-                <p>Winner gets 3 points. Points accumulate over the season.</p>
-            </div>
-            <div class="card">
-                <h3>Top 4 Teams</h3>
-                <p>Quarter Finals: Best of 3. Each team chooses a map, 3rd map decided by system if needed.</p>
-            </div>
-            <div class="card">
-                <h3>Weekend Games</h3>
-                <p>Matches are scheduled on weekends. All teams face each other once before playoffs.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Schedule Section -->
-    <section id="schedule">
+    <!-- Collapsible Sections -->
+    <section id="schedule" class="collapsible">
         <h2>Upcoming Matches</h2>
         <table>
             <thead>
@@ -88,11 +63,9 @@
         <p class="note">*Change Map X, date, or time in script.js or directly here.</p>
     </section>
 
-    <!-- Teams Section -->
-    <section id="teams">
+    <section id="teams" class="collapsible">
         <h2>Participating Teams</h2>
         <div class="team-cards" id="team-cards">
-            <!-- Example team -->
             <div class="team-card">
                 <h3>Team Alpha</h3>
                 <p>@tiktok_alpha</p>
@@ -105,8 +78,7 @@
         <p class="note">*Copy and edit team-card div to add new teams.</p>
     </section>
 
-    <!-- Leaderboard Section -->
-    <section id="leaderboard">
+    <section id="leaderboard" class="collapsible">
         <h2>Leaderboard</h2>
         <table>
             <thead>
@@ -141,8 +113,7 @@
         <p class="note">*Add new teams by copying <tr> and updating wins/losses. Points auto-calculated.</p>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="collapsible">
         <h2>Contact</h2>
         <p>Join our Discord to register or inquire: </p>
         <a href="https://discord.gg/" target="_blank" class="btn">Discord</a>
