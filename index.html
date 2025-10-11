@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaos Major Network</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background canvas -->
+    <canvas id="background"></canvas>
+
+    <!-- Background music -->
+    <audio id="bg-music" src="assets/background-music.mp3" loop autoplay></audio>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="assets/Discord Logo.jpg" alt="KMNx Logo">
+        </div>
+        <div class="site-name">
+            <h1>
+                <span class="red">K</span>aos 
+                <span class="red">M</span>ajor 
+                <span class="red">N</span>etwork
+            </h1>
+            <p class="small-text">KMNx League</p>
+        </div>
+        <nav>
+            <a href="#schedule">Schedule</a>
+            <a href="#teams">Teams</a>
+            <a href="#leaderboard">Leaderboard</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h2>Welcome to the KMNx League</h2>
+        <p>Competitive E-Sports in Champions League Format. Top 4 advance to Quarter Finals!</p>
+        <a href="#schedule" class="btn">See Schedule</a>
+        <a href="#contact" class="btn">Join Discord</a>
+    </section>
+
+    <!-- League Format -->
+    <section id="format">
+        <h2>League Format</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Point System</h3>
+                <p>Winner gets 3 points. Points accumulate over the season.</p>
+            </div>
+            <div class="card">
+                <h3>Top 4 Teams</h3>
+                <p>Quarter Finals: Best of 3. Each team chooses a map, 3rd map decided by system if needed.</p>
+            </div>
+            <div class="card">
+                <h3>Weekend Games</h3>
+                <p>Matches are scheduled on weekends. All teams face each other once before playoffs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule">
+        <h2>Upcoming Matches</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Map</th>
+                </tr>
+            </thead>
+            <tbody id="schedule-table">
+                <tr>
+                    <td>12/10/2025</td>
+                    <td>19:00</td>
+                    <td>Map X</td>
+                </tr>
+                <tr>
+                    <td>12/10/2025</td>
+                    <td>19:00</td>
+                    <td>Map X</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="note">*Change Map X, date, or time in script.js or directly here.</p>
+    </section>
+
+    <!-- Teams Section -->
+    <section id="teams">
+        <h2>Participating Teams</h2>
+        <div class="team-cards" id="team-cards">
+            <!-- Example team -->
+            <div class="team-card">
+                <h3>Team Alpha</h3>
+                <p>@tiktok_alpha</p>
+            </div>
+            <div class="team-card">
+                <h3>Team Beta</h3>
+                <p>@tiktok_beta</p>
+            </div>
+        </div>
+        <p class="note">*Copy and edit team-card div to add new teams.</p>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard">
+        <h2>Leaderboard</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Place</th>
+                    <th>Team</th>
+                    <th>Games Played</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboard-table">
+                <tr data-wins="2" data-losses="0">
+                    <td>1</td>
+                    <td>Team Alpha</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>0</td>
+                    <td>6</td>
+                </tr>
+                <tr data-wins="1" data-losses="1">
+                    <td>2</td>
+                    <td>Team Beta</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="note">*Add new teams by copying <tr> and updating wins/losses. Points auto-calculated.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Join our Discord to register or inquire: </p>
+        <a href="https://discord.gg/" target="_blank" class="btn">Discord</a>
+    </section>
+
+    <footer>
+        <p>© 2025 KMNx League. All rights reserved.</p>
+    </footer>
+
+    <script src="background.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
